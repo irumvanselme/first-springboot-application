@@ -3,7 +3,6 @@ package com.springboot.springbootclass.controllers;
 import com.springboot.springbootclass.models.Student;
 import com.springboot.springbootclass.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

@@ -1,24 +1,20 @@
 package com.springboot.springbootclass.models;
 
-import com.sun.istack.NotNull;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "students")
 public class Student {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotNull
+    @NotNull(message = "Names is required")
     private String names;
 
-    @NotNull
+    @NotNull(message = "School name is required")
     private String schoolName;
 
     public Student() { }

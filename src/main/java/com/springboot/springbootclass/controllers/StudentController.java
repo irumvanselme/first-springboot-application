@@ -3,10 +3,10 @@ package com.springboot.springbootclass.controllers;
 import com.springboot.springbootclass.models.Student;
 import com.springboot.springbootclass.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,5 +21,18 @@ public class StudentController {
         return  repository.findAll();
     }
 
+    @PostMapping
+    public Student create(@Valid @RequestBody Student student){
+        return repository.save(student);
+    }
 
+    @GetMapping(value = "/{name}")
+    public Student getStudentsByNames(String name){
+        return repository.findByNames(name);
+    }
+
+    @PutMapping
+    public Student update(@RequestBody Student student){
+        return repository.save(student);
+    }
 }

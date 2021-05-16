@@ -12,25 +12,24 @@ public class CreateStudentDTO {
     @Size(min = 2, max = 10)
     private String schoolName;
 
-    @NotNull
     @Size(min = 2, max = 10)
     private String course;
 
     @NotNull
-    private float total_marks;
+    private float totalMarks;
 
     @NotNull
-    private float scored_marks;
+    private float scoredMarks;
 
     public CreateStudentDTO() {
     }
 
-    public CreateStudentDTO(@NotNull @Size(min = 2, max = 10) String names, @NotNull @Size(min = 2, max = 10) String schoolName, @NotNull @Size(min = 2, max = 10) String course, @NotNull float total_marks, @NotNull float scored_marks) {
+    public CreateStudentDTO(String names, String schoolName, String course, float totalMarks, float scoredMarks) {
         this.names = names;
         this.schoolName = schoolName;
         this.course = course;
-        this.total_marks = total_marks;
-        this.scored_marks = scored_marks;
+        this.totalMarks = totalMarks;
+        this.scoredMarks = scoredMarks;
     }
 
     public String getNames() {
@@ -57,19 +56,19 @@ public class CreateStudentDTO {
         this.course = course;
     }
 
-    public float getTotal_marks() {
-        return total_marks;
+    public float getTotalMarks() {
+        return totalMarks;
     }
 
-    public void setTotal_marks(float total_marks) {
-        this.total_marks = total_marks;
+    public void setTotalMarks(float totalMarks) {
+        this.totalMarks = totalMarks;
     }
 
-    public float getScored_marks() {
-        return scored_marks;
+    public float getScoredMarks() {
+        return scoredMarks;
     }
 
-    public void setScored_marks(float scored_marks) {
-        this.scored_marks = scored_marks;
+    public void setScoredMarks(float scoredMarks) {
+        this.scoredMarks = scoredMarks;
     }
 }

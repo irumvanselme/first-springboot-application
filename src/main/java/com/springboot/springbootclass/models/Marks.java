@@ -3,6 +3,7 @@ package com.springboot.springbootclass.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -21,13 +22,17 @@ public class Marks {
     @NotNull
     private float scored_marks;
 
+    @NotNull
+    @ManyToOne
+    private Student student;
+
     public Marks(){}
 
-    public Marks(int id, @NotNull String course, @NotNull float totol_marks, @NotNull float scored_marks) {
-        this.id = id;
+    public Marks(@NotNull String course, @NotNull float totol_marks, @NotNull float scored_marks, Student student) {
         this.course = course;
         this.totol_marks = totol_marks;
         this.scored_marks = scored_marks;
+        this.student = student;
     }
 
     public int getId() {
@@ -60,5 +65,13 @@ public class Marks {
 
     public void setScored_marks(float scored_marks) {
         this.scored_marks = scored_marks;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 }

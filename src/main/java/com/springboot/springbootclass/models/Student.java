@@ -16,10 +16,12 @@ public class Student {
     @NotNull(message = "School name is required")
     private String schoolName;
 
+    @OneToOne
+    private Marks marks;
+
     public Student() { }
 
-    public Student(long id, String names, String schoolName) {
-        this.id = id;
+    public Student(String names, String schoolName) {
         this.names = names;
         this.schoolName = schoolName;
     }

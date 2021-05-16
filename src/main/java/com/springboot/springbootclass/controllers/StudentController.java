@@ -7,31 +7,38 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/students")
 public class StudentController {
 
     @Autowired
-    private StudentRepository repository;
+    private StudentRepository studentRepository;
+
 
     @GetMapping
-    public List<Student> students (){
-        return  repository.findAll();
+    public List<Student> students() {
+        return studentRepository.findAll();
     }
 
     @PostMapping
-    public Student create(@Valid @RequestBody Student student){
-        return repository.save(student);
+    public Student create(@Valid @RequestBody Student data) {
+        return studentRepository.save(data);
     }
 
-    @GetMapping(value = "/{name}")
-    public Student getStudentsByNames(String name){
-        return repository.findByNames(name);
+    @GetMapping(value = "/{id}")
+    public Optional<Student> getBook(@PathVariable("id") long id) {
+        return studentRepository.findById(id);
     }
 
     @PutMapping
-    public Student update(@RequestBody Student student){
-        return repository.save(student);
+    public Student update(@Valid @RequestBody Student student) {
+        return studentRepository.save(student);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable("id") long id) {
+        studentRepository.deleteById(id);
     }
 }

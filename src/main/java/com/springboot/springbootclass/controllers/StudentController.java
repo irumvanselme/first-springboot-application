@@ -5,7 +5,6 @@ import com.springboot.springbootclass.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +22,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public Student create(@Valid @RequestBody Student data) {
+    public Student create(@RequestBody Student data) {
         return studentRepository.save(data);
     }
 
@@ -33,7 +32,7 @@ public class StudentController {
     }
 
     @PutMapping
-    public Student update(@Valid @RequestBody Student student) {
+    public Student update(@RequestBody Student student) {
         return studentRepository.save(student);
     }
 

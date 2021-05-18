@@ -1,18 +1,15 @@
 package com.springboot.springbootclass.dto;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import com.sun.istack.NotNull;
+
 
 public class CreateStudentDTO {
     @NotNull
-    @Size(min = 2, max = 10)
     private String names;
 
     @NotNull
-    @Size(min = 2, max = 10)
     private String schoolName;
 
-    @Size(min = 2, max = 10)
     private String course;
 
     @NotNull

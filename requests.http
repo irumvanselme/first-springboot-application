@@ -1,0 +1,4 @@
+GET http://localhost:8080/springbootclass-2.4.5/api/students
+Accept: application/json
+
+###
